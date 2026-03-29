@@ -6,6 +6,8 @@ import assert from "node:assert";
 
 console.assert(process.env.OPENROUTER_API_KEY, '\n\n!! Open Router API Key (OPENROUTER_API_KEY) not provided !!\n')
 
+// ** TEST RESULTS MIGHT CHANGE, DEPENDING WHETHER THE MODELS FEATURES CHANGE ** //
+
 it('should get the cheapest model', async () => {
     const cheapestConfig = {
         ...config,
@@ -63,5 +65,5 @@ it('should get the model with the highest throughput', async () => {
 
     console.log('\n> Response:\n');
     console.log('Model:', payload.model);
-    assert.equal(payload.model, 'arcee-ai/trinity-large-preview:free')
+    assert.equal(payload.model, 'stepfun/step-3.5-flash:free')
 })
