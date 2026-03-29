@@ -3,9 +3,7 @@ import { type ModelResponse } from "./OpenRouterService.ts";
 
 const app = createServer();
 
-app.listen({ port: 3000 }, (err) => {
-    if (err) throw err
-});
+app.listen({ port: 3000, host: '0.0.0.0' });
 
 const response = await app.inject({
     method: 'POST',
