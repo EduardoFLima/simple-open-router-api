@@ -1,4 +1,6 @@
 import Fastify from 'fastify'
+import { OpenRouterService } from './OpenRouterService.ts';
+import { config } from './config.ts'
 
 export const createServer = () => {
 
@@ -15,12 +17,11 @@ export const createServer = () => {
     }
 
     app.post('/chat', { schema }, async (request, reply) => {
-        
         const { question } = request.body as { question: string }
-        
-        console.log('Question: ', question)
 
-        return reply.send('hi there !');
+        const openRouterService = new OpenRouterService(config)
+        
+        return openRouterService.generate(question)
     });
 
     return app;
