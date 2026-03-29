@@ -1,7 +1,9 @@
 import { createServer } from "./server.ts";
-import { type ModelResponse } from "./OpenRouterService.ts";
+import { OpenRouterService, type ModelResponse } from "./OpenRouterService.ts";
+import { config } from "./config.ts";
 
-const app = createServer();
+const openRouterService = new OpenRouterService(config)
+const app = createServer(openRouterService);
 
 app.listen({ port: 3000, host: '0.0.0.0' });
 
